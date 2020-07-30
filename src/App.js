@@ -1,38 +1,79 @@
 import './App.css';
 import Header from './Header';
-import Country from './Country';
+// import Country from './Country';
 import CountryList from './CountryList';
-import { Route } from 'react-router-dom';
+import { Route, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';
-import axios from 'axios';
-import { createClient } from 'pexels';
+// import { createClient } from 'pexels';
+import Axios from 'axios';
+import CountryImages from './CountryImages';
 
-const client = createClient(
-	'563492ad6f917000010000010dfc1943a0ad41d0a6d1e95c490aed47'
-);
+// const client = createClient(
+// 	'563492ad6f917000010000010dfc1943a0ad41d0a6d1e95c490aed47'
+// );
 
-// All requests made with the client will be authenticated
-
-const url = 'https://api.pexels.com/v1';
-// const key = '563492ad6f917000010000010dfc1943a0ad41d0a6d1e95c490aed47';
 class App extends Component {
 	constructor(props) {
 		super(props);
-		this.state = {};
+		this.state = {
+			photoSearch: [],
+			countryData: [],
+		};
 	}
+
 	componentDidMount() {
-		axios(url, {
-			header: {
-				Authorization: `Basic ${client}`,
-			},
-		})
-			.then((response) => {
-        console.log(response);
-      })
+		Axios('https://restcountries.eu/rest/v2/all')
+			.then((json) => {
+				this.setState({
+					countryData: json.data,
+				});
+				// console.log(json);
+			})
 			.catch(console.error);
+
+		// client.photos
+		// 	.search({ query: 'israel', per_page: 1, page: 5 })
+		// 	.then((json) => {
+		// 		this.setState({ photoSearch: json });
+		// 	});
 	}
+
 	render() {
-		return <div></div>;
+		console.log(this.state.countryData);
+		return (
+			<div className='App'>
+				<header>
+					<Header />
+				</header>
+				<main>
+					<Route
+						path='/'
+						exact
+						render={() => {
+							return <CountryList countryData={this.state.countryData} />;
+						}}
+					/>
+					<Route
+						path='/country/:country'
+						render={(routerProps) => {
+							return (
+								<CountryImages
+									match={routerProps.match}
+									photoSearch={this.state.photoSearch}
+									countryData={this.state.countryData}
+								/>
+							);
+						}}
+					/>
+					<Route
+						path='*'
+						render={() => {
+							return <Redirect to='/' />;
+						}}
+					/>
+				</main>
+			</div>
+		);
 	}
 }
 
