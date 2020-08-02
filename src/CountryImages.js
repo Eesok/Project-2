@@ -36,17 +36,29 @@ class CountryImages extends Component {
 				<footer>
 					<button
 						onClick={() => {
-							this.setState({
-								displayIndex: (this.state.displayIndex -= 1),
-							});
+							if (this.state.displayIndex < 0) {
+								this.setState({
+									displayIndex: this.state.photoSearch.length,
+								});
+							} else {
+								this.setState({
+									displayIndex: (this.state.displayIndex -= 1),
+								});
+							}
 						}}>
 						Previous Photo
 					</button>
 					<button
 						onClick={() => {
-							this.setState({
-								displayIndex: (this.state.displayIndex += 1),
-							});
+							if (this.state.displayIndex < this.state.photoSearch.length) {
+								this.setState({
+									displayIndex: (this.state.displayIndex += 1),
+								});
+							} else {
+								this.setState({
+									displayIndex: 0,
+								});
+							}
 						}}>
 						Next Photo
 					</button>

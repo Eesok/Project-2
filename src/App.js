@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 // import { createClient } from 'pexels';
 import Axios from 'axios';
 import CountryImages from './CountryImages';
+import Search from './Search';
 
 // const client = createClient(
 // 	'563492ad6f917000010000010dfc1943a0ad41d0a6d1e95c490aed47'
@@ -18,24 +19,22 @@ class App extends Component {
 		this.state = {
 			photoSearch: [],
 			countryData: [],
+			searchValue: '',
 		};
 	}
 
+	eventHandler = (data) => {
+		this.setState({ searchValue: data.searchValue });
+	};
 	componentDidMount() {
 		Axios('https://restcountries.eu/rest/v2/all')
 			.then((json) => {
 				this.setState({
 					countryData: json.data,
 				});
-				// console.log(json);
+				console.log(json);
 			})
 			.catch(console.error);
-
-		// client.photos
-		// 	.search({ query: 'israel', per_page: 1, page: 5 })
-		// 	.then((json) => {
-		// 		this.setState({ photoSearch: json });
-		// 	});
 	}
 
 	render() {
@@ -50,7 +49,15 @@ class App extends Component {
 						path='/'
 						exact
 						render={() => {
-							return <CountryList countryData={this.state.countryData} />;
+							return (
+								<div>
+									<Search onChange={this.eventHandler} />
+									<CountryList
+										searchValue={this.state.searchValue}
+										countryData={this.state.countryData}
+									/>
+								</div>
+							);
 						}}
 					/>
 					<Route

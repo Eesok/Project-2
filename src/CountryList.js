@@ -3,9 +3,16 @@ import Country from './Country';
 
 class CountryList extends Component {
 	render() {
-		const renderCountry = this.props.countryData.map((country) => {
-			return <Country key={country.alpha3Code} country={country} />;
-		});
+		console.log(this.props.searchValue);
+		const renderCountry = this.props.countryData
+			.filter(
+				(country) =>
+					this.props.searchValue == '' ||
+					country.name
+						.toLowerCase()
+						.includes(this.props.searchValue.toLowerCase())
+			)
+			.map((country) => <Country key={country.alpha3Code} country={country} />);
 		return <div className='country-list'>{renderCountry}</div>;
 	}
 }
