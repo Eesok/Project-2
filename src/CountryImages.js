@@ -16,7 +16,7 @@ class CountryImages extends Component {
 	componentDidMount() {
 		const name = this.props.match.params.country;
 		console.log(name);
-		client.photos.search({ query: name }).then((json) => {
+		client.photos.search({ query: name, per_page: 80 }).then((json) => {
 			let image = json.photos;
 			this.setState({ photoSearch: image });
 			console.log(image);
@@ -25,21 +25,32 @@ class CountryImages extends Component {
 
 	render() {
 		return (
-			<div>
-				<button
-					onClick={() => {
-						this.setState({
-							displayIndex: (this.state.displayIndex += 1),
-						});
-					}}>
-					Next Photo
-				</button>
+			<div className='country-images'>
 				{this.state.photoSearch && (
 					<img
+						className='country-image'
 						alt='country pic'
-						src={this.state.photoSearch[this.state.displayIndex].src.medium}
+						src={this.state.photoSearch[this.state.displayIndex].src.landscape}
 					/>
 				)}
+				<footer>
+					<button
+						onClick={() => {
+							this.setState({
+								displayIndex: (this.state.displayIndex -= 1),
+							});
+						}}>
+						Previous Photo
+					</button>
+					<button
+						onClick={() => {
+							this.setState({
+								displayIndex: (this.state.displayIndex += 1),
+							});
+						}}>
+						Next Photo
+					</button>
+				</footer>
 			</div>
 		);
 	}

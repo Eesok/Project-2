@@ -7,7 +7,7 @@ class Country extends Component {
 			<div className='country'>
 				<h3>{this.props.country.name}</h3>
 				<Link to={'/country/' + this.props.country.name}>
-					<img src={this.props.country.flag} />
+					<img alt='country-pic' src={this.props.country.flag} />
 				</Link>
 			</div>
 		);
