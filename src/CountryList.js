@@ -7,7 +7,7 @@ class CountryList extends Component {
 		const renderCountry = this.props.countryData
 			.filter(
 				(country) =>
-					this.props.searchValue == '' ||
+					this.props.searchValue === '' ||
 					country.name
 						.toLowerCase()
 						.includes(this.props.searchValue.toLowerCase())

@@ -11,7 +11,7 @@ class Search extends Component {
 	render() {
 		return (
 			<form>
-				<label htmlFor='search'>Search</label>
+				<label htmlFor='search'>Search: </label>
 				<input
 					id='search'
 					type='text'

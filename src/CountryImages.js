@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Axios from 'axios';
-import { Link } from 'react-router-dom';
+import Header from './Header';
 
 class CountryImages extends Component {
 	constructor(props) {
@@ -28,6 +28,10 @@ class CountryImages extends Component {
 	render() {
 		return (
 			<div className='country-images'>
+				<header>
+					<Header country={this.props.match.params.country} />
+				</header>
+				<h1>{this.props.match.params.country}</h1>
 				<div className='country-image'>
 					{this.state.photoSearch && (
 						<img
@@ -38,45 +42,44 @@ class CountryImages extends Component {
 						/>
 					)}
 				</div>
-				<div className='pixabay-logo'>
-					<a href='https://pixabay.com/' target='_blank' >
-						    
-						<img
-							src='https://pixabay.com/static/img/public/medium_rectangle_a.png'
-							alt='Pixabay'
-						/>
-					</a>
-				</div>
-				<footer>
-					<button
-						onClick={() => {
-							if (this.state.displayIndex > 0) {
-								this.setState({
-									displayIndex: (this.state.displayIndex -= 1),
-								});
-							} else {
-								this.setState({
-									displayIndex: this.state.photoSearch.length - 1,
-								});
-							}
-						}}>
-						Previous
-					</button>
-					<button
-						onClick={() => {
-							if (this.state.displayIndex < this.state.photoSearch.length - 1) {
-								this.setState({
-									displayIndex: (this.state.displayIndex += 1),
-								});
-							} else {
-								this.setState({
-									displayIndex: 0,
-								});
-							}
-						}}>
-						Next
-					</button>
-				</footer>
+				<a
+					className='pixabay-logo-link'
+					href='https://pixabay.com/'
+					target='_blank'
+					rel='noopener noreferrer'>
+					<img src='https://pixabay.com/static/img/logo.png' alt='Pixabay' />
+				</a>
+
+				<button
+					className='buttons previous'
+					onClick={() => {
+						if (this.state.displayIndex > 0) {
+							this.setState({
+								displayIndex: (this.state.displayIndex -= 1),
+							});
+						} else {
+							this.setState({
+								displayIndex: this.state.photoSearch.length - 1,
+							});
+						}
+					}}>
+					<i class='arrow left'></i>
+				</button>
+				<button
+					className='buttons next'
+					onClick={() => {
+						if (this.state.displayIndex < this.state.photoSearch.length - 1) {
+							this.setState({
+								displayIndex: (this.state.displayIndex += 1),
+							});
+						} else {
+							this.setState({
+								displayIndex: 0,
+							});
+						}
+					}}>
+					<i class='arrow right'></i>
+				</button>
 			</div>
 		);
 	}

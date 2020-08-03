@@ -1,14 +1,21 @@
 body {
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
+	background: #004ff9;
+	background: -webkit-linear-gradient(to left, #fff94c, #004ff9);
+	background: linear-gradient(to left, #fff94c, #004ff9);
 }
+
+* {
+	font-family: @import
+		url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+}
+
 header {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	padding-bottom: 25px;
-	background: url('https://pixabay.com/photos/milky-way-starry-sky-night-sky-star-2695569/');
+	/* padding-bottom: 25px; */
 }
 header nav a {
 	display: inline-block;
@@ -24,24 +31,43 @@ header nav a:hover {
 	color: #222;
 }
 
-footer {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	height: 10%;
-	background-image: url('https://pixabay.com/photos/milky-way-starry-sky-night-sky-star-2695569/');
-	justify-content: center;
-}
-button {
-	display: inline-block;
+.buttons {
 	text-decoration: none;
 	color: black;
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 	transition: all 300ms ease;
-	background-color: teal;
+	background: #ece9e6;
 	border: none;
+	position: absolute;
+	height: 25%;
+	top: 30%;
+}
+.buttons:hover {
+	background-color: rosybrown;
+}
+.next {
+	right: 0;
+	/* top: 50%; */
+}
+.arrow {
+	border: solid black;
+	border-width: 0 3px 3px 0;
+	display: inline-block;
+	padding: 3px;
+}
+
+.right {
+	transform: rotate(-45deg);
+	-webkit-transform: rotate(-45deg);
+}
+.left {
+	transform: rotate(135deg);
+	-webkit-transform: rotate(135deg);
+}
+.previous {
+	left: 0;
+	/* top: 50%; */
 }
 .country {
 	flex-basis: 33%;
@@ -67,12 +93,16 @@ button {
 	justify-content: space-around;
 	align-items: center;
 }
-.country-image {
-	height: 100%;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
+.country-image img {
+	/* height: 50%; */
+	width: 100%;
+	height: auto;
+	max-height: 75vh;
+	object-fit: cover;
 }
-.pixabay-logo {
-	max-height: 25px !important;
+.pixabay-logo-link img {
+	max-height: 25px;
+	position: absolute;
+	top: 10vh;
+	right: 5vh;
 }

@@ -1,5 +1,4 @@
 import './App.css';
-import Header from './Header';
 // import Country from './Country';
 import CountryList from './CountryList';
 import { Route, Redirect } from 'react-router-dom';
@@ -41,9 +40,7 @@ class App extends Component {
 		console.log(this.state.countryData);
 		return (
 			<div className='App'>
-				<header>
-					<Header />
-				</header>
+				
 				<main>
 					<Route
 						path='/'
