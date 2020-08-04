@@ -19,7 +19,6 @@ class CountryImages extends Component {
 				this.setState({
 					photoSearch: json.data.hits,
 				});
-				console.log(json.data.hits);
 			})
 			.catch(console.error);
 	}

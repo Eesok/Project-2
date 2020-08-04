@@ -13,7 +13,6 @@ class About extends Component {
 		const languages = countryInfo.languages.map((langs) => {
 			return <li>{langs.name}</li>;
 		});
-		console.log(countryInfo.name);
 		return (
 			<div>
 				<header>

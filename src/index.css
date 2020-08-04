@@ -5,6 +5,7 @@ body {
 	background: -webkit-linear-gradient(to left, #fff94c, #004ff9);
 	background: linear-gradient(to left, #fff94c, #004ff9);
 	font-family: fantasy;
+	text-align: center;
 }
 
 header {

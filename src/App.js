@@ -26,13 +26,11 @@ class App extends Component {
 				this.setState({
 					countryData: json.data,
 				});
-				console.log(json);
 			})
 			.catch(console.error);
 	}
 
 	render() {
-		console.log(this.state.countryData);
 		return (
 			<div className='App'>
 				<main>

@@ -3,7 +3,6 @@ import Country from './Country';
 
 class CountryList extends Component {
 	render() {
-		console.log(this.props.searchValue);
 		const renderCountry = this.props.countryData
 			.filter(
 				(country) =>
