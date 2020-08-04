@@ -10,8 +10,8 @@ class About extends Component {
 		const countryInfo = this.props.countryData.find(
 			(arr) => arr.name === this.props.match.params.country
 		);
-		const languages = countryInfo.languages.map((langs) => {
-			return <li>{langs.name}</li>;
+		const languages = countryInfo.languages.map((langs, index) => {
+			return <li key={index} >{langs.name}</li>;
 		});
 		return (
 			<div>
