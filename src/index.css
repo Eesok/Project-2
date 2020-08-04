@@ -48,9 +48,9 @@ header nav a:hover {
 }
 .arrow {
 	border: solid black;
-	border-width: 0 3px 3px 0;
+	border-width: 0 0.5vh 0.5vh 0;
 	display: inline-block;
-	padding: 3px;
+	padding: 1vh;
 }
 
 .right {
@@ -63,7 +63,6 @@ header nav a:hover {
 }
 .previous {
 	left: 0;
-	/* top: 50%; */
 }
 .country {
 	flex-basis: 33%;
@@ -74,8 +73,8 @@ header nav a:hover {
 }
 .country img {
 	margin: auto;
-	max-height: 250px;
-	max-width: 200px;
+	max-width: 25vh;
+	max-height: auto;
 }
 .country h3 {
 	margin: 0;
@@ -96,7 +95,7 @@ header nav a:hover {
 	object-fit: cover;
 }
 .pixabay-logo-link img {
-	max-height: 25px;
+	max-height: 2.5vh;
 }
 .pixabay-logo-link {
 	position: absolute;
@@ -109,9 +108,9 @@ form {
 	padding-top: 5vh;
 }
 .title {
-	font-size: 48px;
+	font-size: 5vh;
 	font-family: fantasy;
-	margin: 10px;
+	margin: 1vh;
 }
 .country-data {
 	display: grid;
@@ -119,7 +118,7 @@ form {
 }
 span {
 	font-weight: bolder;
-	font-size: 24px;
+	font-size: 3.5vh;
 }
 .flag {
 	max-height: 25vh;
