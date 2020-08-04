@@ -1,4 +1,3 @@
-import './App.css';
 import CountryList from './CountryList';
 import { Route, Redirect } from 'react-router-dom';
 import React, { Component } from 'react';

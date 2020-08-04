@@ -12,8 +12,6 @@ class CountryImages extends Component {
 	}
 	componentDidMount() {
 		const name = this.props.match.params.country;
-		console.log(process.env.REACT_APP_COUNTRY_API_KEY);
-
 		Axios(
 			`https://pixabay.com/api/?key=${process.env.REACT_APP_COUNTRY_API_KEY}&q=${name}&per_page=200`
 		)
