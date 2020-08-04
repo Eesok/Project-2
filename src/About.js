@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import Header from './Header';
 
 class About extends Component {
+	//This function courtesy of Tom Pawlak @ https://blog.abelotech.com/posts/number-currency-formatting-javascript/
+	formatNumber = (num) => {
+		return num.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,');
+	};
 	render() {
 		const countryInfo = this.props.countryData.find(
 			(arr) => arr.name === this.props.match.params.country
@@ -22,7 +26,7 @@ class About extends Component {
 					</p>
 					<p>
 						<span>Population: </span>
-						{countryInfo.population}
+						{this.formatNumber(countryInfo.population)}
 					</p>
 					<p>
 						<span>Currency: </span> {countryInfo.currencies[0].name}

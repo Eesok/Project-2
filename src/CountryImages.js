@@ -12,10 +12,11 @@ class CountryImages extends Component {
 	}
 	componentDidMount() {
 		const name = this.props.match.params.country;
-		console.log(name);
+		console.log(process.env.REACT_APP_COUNTRY_API_KEY);
 
-		const key = '17685242-f265de5e7dde5a4462ae00735';
-		Axios(`https://pixabay.com/api/?key=${key}&q=${name}&per_page=200`)
+		Axios(
+			`https://pixabay.com/api/?key=${process.env.REACT_APP_COUNTRY_API_KEY}&q=${name}&per_page=200`
+		)
 			.then((json) => {
 				this.setState({
 					photoSearch: json.data.hits,
