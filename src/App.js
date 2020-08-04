@@ -7,6 +7,7 @@ import React, { Component } from 'react';
 import Axios from 'axios';
 import CountryImages from './CountryImages';
 import Search from './Search';
+import About from './About';
 
 // const client = createClient(
 // 	'563492ad6f917000010000010dfc1943a0ad41d0a6d1e95c490aed47'
@@ -40,8 +41,8 @@ class App extends Component {
 		console.log(this.state.countryData);
 		return (
 			<div className='App'>
-				
 				<main>
+				<p className='title' >The Nation Cave</p>
 					<Route
 						path='/'
 						exact
@@ -64,6 +65,18 @@ class App extends Component {
 								<CountryImages
 									match={routerProps.match}
 									photoSearch={this.state.photoSearch}
+									countryData={this.state.countryData}
+								/>
+							);
+						}}
+					/>
+					<Route
+						path='/about/:country'
+						exact
+						render={(routerProps) => {
+							return (
+								<About
+									match={routerProps.match}
 									countryData={this.state.countryData}
 								/>
 							);

@@ -47,7 +47,10 @@ class CountryImages extends Component {
 					href='https://pixabay.com/'
 					target='_blank'
 					rel='noopener noreferrer'>
-					<img src='https://pixabay.com/static/img/logo.png' alt='Pixabay' />
+					<div>
+						<h4>Powered by: </h4>
+						<img src='https://pixabay.com/static/img/logo.png' alt='Pixabay' />
+					</div>
 				</a>
 
 				<button
@@ -63,7 +66,7 @@ class CountryImages extends Component {
 							});
 						}
 					}}>
-					<i class='arrow left'></i>
+					<i className='arrow left'></i>
 				</button>
 				<button
 					className='buttons next'
@@ -78,7 +81,7 @@ class CountryImages extends Component {
 							});
 						}
 					}}>
-					<i class='arrow right'></i>
+					<i className='arrow right'></i>
 				</button>
 			</div>
 		);

@@ -4,18 +4,13 @@ body {
 	background: #004ff9;
 	background: -webkit-linear-gradient(to left, #fff94c, #004ff9);
 	background: linear-gradient(to left, #fff94c, #004ff9);
-}
-
-* {
-	font-family: @import
-		url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+	font-family: fantasy;
 }
 
 header {
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
-	/* padding-bottom: 25px; */
 }
 header nav a {
 	display: inline-block;
@@ -24,6 +19,7 @@ header nav a {
 	text-transform: uppercase;
 	padding: 0.5rem 1rem;
 	transition: all 300ms ease;
+	border-radius: 50%;
 }
 
 header nav a:hover {
@@ -41,14 +37,13 @@ header nav a:hover {
 	border: none;
 	position: absolute;
 	height: 25%;
-	top: 30%;
+	top: 40%;
 }
 .buttons:hover {
 	background-color: rosybrown;
 }
 .next {
 	right: 0;
-	/* top: 50%; */
 }
 .arrow {
 	border: solid black;
@@ -94,15 +89,37 @@ header nav a:hover {
 	align-items: center;
 }
 .country-image img {
-	/* height: 50%; */
 	width: 100%;
 	height: auto;
-	max-height: 75vh;
+	max-height: 55vh;
 	object-fit: cover;
 }
 .pixabay-logo-link img {
 	max-height: 25px;
+}
+.pixabay-logo-link {
 	position: absolute;
-	top: 10vh;
+	bottom: 5vh;
 	right: 5vh;
+	text-decoration: none;
+	color: black;
+}
+form {
+	padding-top: 5vh;
+}
+.title {
+	font-size: 48px;
+	font-family: fantasy;
+	margin: 10px;
+}
+.country-data {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+}
+span {
+	font-weight: bolder;
+	font-size: 24px;
+}
+.flag {
+	max-height: 25vh;
 }

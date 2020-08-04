@@ -12,7 +12,8 @@ class CountryList extends Component {
 						.toLowerCase()
 						.includes(this.props.searchValue.toLowerCase())
 			)
-			.map((country) => <Country key={country.alpha3Code} country={country} />);
+			.map((country) => <Country key={country.alpha3Code} country={country} />
+			);
 		return <div className='country-list'>{renderCountry}</div>;
 	}
 }

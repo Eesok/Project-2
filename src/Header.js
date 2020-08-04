@@ -6,7 +6,8 @@ class Header extends Component {
 		return (
 			<nav>
 				<Link to='/'>Home</Link>
-				<Link to={this.props.country + '/about'}>About</Link>
+				<Link to={'/country/' + this.props.country}>Images</Link>
+				<Link to={'/about/' + this.props.country}>About</Link>
 			</nav>
 		);
 	}
