@@ -123,3 +123,6 @@ span {
 .flag {
 	max-height: 25vh;
 }
+@media screen and (max-width: 500px) {
+	
+}
